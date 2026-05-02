@@ -1,0 +1,184 @@
+---
+
+---
+
+<header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500">
+  <div
+    class="max-w-6xl mx-auto px-6 lg:px-16 flex items-center justify-between h-[72px]"
+  >
+    <a
+      href="#inicio"
+      class="flex items-center gap-2 font-display text-2xl font-light tracking-wide text-cream transition-colors duration-300 navbar-logo"
+    >
+      <img src="/img/logo.png" alt="Logo" class="size-12" />
+      <!-- <svg
+        width="26"
+        height="26"
+        viewBox="0 0 28 28"
+        fill="none"
+        aria-hidden="true"
+        class="text-sand flex-shrink-0"
+      >
+        <path
+          d="M14 2C14 2 6 10 6 17C6 21.4 9.6 25 14 25C18.4 25 22 21.4 22 17C22 10 14 2 14 2Z"
+          fill="currentColor"
+          opacity="0.9"></path>
+        <path
+          d="M14 8L14 25"
+          stroke="#F4F1EA"
+          stroke-width="1.2"
+          stroke-linecap="round"></path>
+        <path
+          d="M14 15L18 11"
+          stroke="#F4F1EA"
+          stroke-width="1"
+          stroke-linecap="round"></path>
+        <path
+          d="M14 19L10 16"
+          stroke="#F4F1EA"
+          stroke-width="1"
+          stroke-linecap="round"></path>
+      </svg> -->
+      Highlands
+    </a>
+
+    <nav
+      class="hidden md:flex items-center gap-8"
+      aria-label="Navegación principal"
+    >
+      {
+        [
+          "#inicio|Inicio",
+          "#nosotros|Nosotros",
+          "#habitaciones|Habitaciones",
+          "#limpieza|Compromiso",
+        ].map((item) => {
+          const [href, label] = item.split("|");
+          return (
+            <a
+              href={href}
+              class="relative text-[0.72rem] font-medium tracking-[0.18em] uppercase text-cream/80 transition-colors duration-300 hover:text-sand navbar-link
+                    after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-0 after:h-px after:bg-sand after:transition-all after:duration-300 hover:after:w-full"
+            >
+              {label}
+            </a>
+          );
+        })
+      }
+
+      <a
+        href="https://www.instagram.com/highlandshotel_"
+        target="_blank"
+        rel="noopener"
+        class="flex items-center gap-2 px-4 py-1.5 text-[0.72rem] font-medium tracking-[0.12em] uppercase text-cream/80 border border-cream/25 rounded-full transition-all duration-300 hover:border-sand hover:text-sand navbar-link"
+      >
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"
+          ></circle>
+        </svg>
+        @highlandshotel_
+      </a>
+    </nav>
+
+    <button
+      id="menuBtn"
+      class="md:hidden flex flex-col gap-[5px] p-1 bg-transparent border-none cursor-pointer"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <span
+        class="block w-5 h-[1.5px] bg-cream transition-all duration-300 hamburger-line"
+      ></span>
+      <span
+        class="block w-5 h-[1.5px] bg-cream transition-all duration-300 hamburger-line"
+      ></span>
+      <span
+        class="block w-5 h-[1.5px] bg-cream transition-all duration-300 hamburger-line"
+      ></span>
+    </button>
+  </div>
+
+  <div
+    id="mobileMenu"
+    class="md:hidden bg-cream border-t border-cream-dark overflow-hidden max-h-0 transition-all duration-300 ease-in-out"
+  >
+    <div class="flex flex-col px-6 py-4 gap-0">
+      {
+        [
+          "#inicio|Inicio",
+          "#nosotros|Nosotros",
+          "#habitaciones|Habitaciones",
+          "#limpieza|Compromiso",
+          "https://www.instagram.com/highlandshotel_|@highlandshotel_",
+        ].map((item) => {
+          const [href, label] = item.split("|");
+          const isExternal = href.startsWith("http");
+          return (
+            <a
+              href={href}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener" : undefined}
+              class="text-[0.8rem] font-medium tracking-[0.15em] uppercase text-bark py-3 border-b border-cream-dark last:border-0 transition-colors hover:text-forest mobile-link"
+            >
+              {label}
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</header>
+
+<script>
+  const navbar = document.getElementById("navbar")!;
+  const menuBtn = document.getElementById("menuBtn")!;
+  const mobileMenu = document.getElementById("mobileMenu")!;
+  const logo = navbar.querySelector(".navbar-logo") as HTMLElement;
+  const links = navbar.querySelectorAll(".navbar-link");
+  const lines = navbar.querySelectorAll(
+    ".hamburger-line",
+  ) as NodeListOf<HTMLElement>;
+
+  window.addEventListener("scroll", () => {
+    const scrolled = window.scrollY > 40;
+    navbar.style.background = scrolled
+      ? "rgba(244,241,234,0.96)"
+      : "transparent";
+    navbar.style.backdropFilter = scrolled ? "blur(10px)" : "none";
+    navbar.style.boxShadow = scrolled ? "0 1px 0 rgba(111,78,55,0.1)" : "none";
+    logo.style.color = scrolled ? "var(--tw-color-forest, #4A5D4E)" : "#F4F1EA";
+    links.forEach((l) => {
+      (l as HTMLElement).style.color = scrolled
+        ? "#6F4E37"
+        : "rgba(244,241,234,0.8)";
+    });
+    lines.forEach(
+      (l) => (l.style.background = scrolled ? "#4A5D4E" : "#F4F1EA"),
+    );
+  });
+
+  let open = false;
+  menuBtn.addEventListener("click", () => {
+    open = !open;
+    mobileMenu.style.maxHeight = open ? mobileMenu.scrollHeight + "px" : "0";
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+
+  mobileMenu.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      open = false;
+      mobileMenu.style.maxHeight = "0";
+    }),
+  );
+</script>

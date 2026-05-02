@@ -1,0 +1,138 @@
+---
+
+---
+
+<section id="nosotros" class="py-28 bg-forest relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div
+            class="absolute rounded-full bg-sand/5"
+            style="width:320px;height:320px;top:-80px;right:-60px;animation:float 12s ease-in-out infinite;"
+        >
+        </div>
+        <div
+            class="absolute rounded-full bg-cream/4"
+            style="width:180px;height:180px;bottom:40px;left:-50px;animation:float 9s ease-in-out 3s infinite;"
+        >
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 lg:px-16 relative z-10">
+        <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+        >
+            <div>
+                <span
+                    class="block text-[0.68rem] font-medium tracking-[0.25em] uppercase text-sand mb-4"
+                >
+                    Sobre nosotros
+                </span>
+
+                <h2
+                    class="font-display font-light text-cream mb-6"
+                    style="font-size: clamp(2.2rem, 4.5vw, 3.2rem);"
+                >
+                    Un hotel donde<br />
+                    <em class="italic text-sand">la confianza</em> se vive
+                </h2>
+
+                <p class="text-cream/65 font-light leading-[1.9] text-sm mb-6">
+                    Highlands Hotel es un hotel de montaña creado para ofrecer
+                    descanso, comodidad y conexión con la naturaleza. Rodeado de
+                    paisajes naturales, cuenta con espacios modernos y
+                    acogedores pensados para parejas, familias y viajeros que
+                    buscan salir de la rutina.
+                </p>
+
+                <p class="text-cream/65 font-light leading-[1.9] text-sm mb-10">
+                    Nos caracterizamos por un servicio enfocado en el bienestar
+                    del huésped y por la transparencia en nuestros procesos de
+                    limpieza, garantizando una estancia confiable sin perder la
+                    calidez y armonía del entorno.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a
+                        href="#habitaciones"
+                        class="inline-flex items-center gap-2 px-7 py-3 text-[0.75rem] font-medium tracking-[0.15em] uppercase bg-sand text-bark rounded-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,163,115,0.35)] hover:bg-sand-light"
+                    >
+                        Ver habitaciones
+                        <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M2 7h10M8 3l4 4-4 4"></path>
+                        </svg>
+                    </a>
+                    <a
+                        href="#limpieza"
+                        class="inline-flex items-center gap-2 px-7 py-3 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-cream border border-cream/25 rounded-sm transition-all duration-300 hover:border-sand hover:text-sand"
+                    >
+                        Nuestro compromiso
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-6">
+                <div class="grid grid-cols-3 gap-4">
+                    {
+                        [
+                            { num: "3", label: "Suites\nexclusivas" },
+                            { num: "100%", label: "Limpieza\ncertificada" },
+                            { num: "∞", label: "Vistas al\nbosque" },
+                        ].map((stat) => (
+                            <div class="bg-forest-dark/60 border border-cream/8 rounded-lg p-5 text-center">
+                                <span
+                                    class="block font-display font-light text-sand mb-1"
+                                    style="font-size: 2rem; line-height:1;"
+                                >
+                                    {stat.num}
+                                </span>
+                                <span class="text-[0.62rem] font-medium tracking-[0.12em] uppercase text-cream/40 whitespace-pre-line leading-snug">
+                                    {stat.label}
+                                </span>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                {
+                    [
+                        {
+                            icon: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2l2.4 4.8 5.3.8-3.85 3.75.91 5.3L10 14.1l-4.76 2.51.91-5.3L2.3 7.6l5.3-.8z"/></svg>`,
+                            title: "Descanso real",
+                            desc: "Espacios diseñados para desconectarte y recuperar energía en plena naturaleza.",
+                        },
+                        {
+                            icon: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 2C10 2 3 7 3 12.5a7 7 0 0014 0C17 7 10 2 10 2z"/><path d="M10 7v6M7 10h6"/></svg>`,
+                            title: "Transparencia total",
+                            desc: "Mostramos cada rincón de nuestras habitaciones antes de que reserves. Sin sorpresas.",
+                        },
+                        {
+                            icon: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 2l2 5h5l-4 3 1.5 5L10 12l-4.5 3L7 10 3 7h5z"/><circle cx="10" cy="10" r="3"/></svg>`,
+                            title: "Confort natural",
+                            desc: "Materiales cálidos, iluminación suave y vistas al bosque en cada suite.",
+                        },
+                    ].map((pillar) => (
+                        <div class="group flex items-start gap-4 bg-forest-dark/40 border border-cream/8 rounded-lg px-5 py-4 transition-all duration-300 hover:border-sand/25 hover:bg-forest-dark/70">
+                            <span
+                                class="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-sand/15 text-sand mt-0.5 transition-colors duration-300 group-hover:bg-sand/25"
+                                set:html={pillar.icon}
+                            />
+                            <div>
+                                <span class="block text-[0.72rem] font-medium tracking-[0.15em] uppercase text-cream/80 mb-1">
+                                    {pillar.title}
+                                </span>
+                                <p class="text-[0.8rem] text-cream/45 font-light leading-relaxed">
+                                    {pillar.desc}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

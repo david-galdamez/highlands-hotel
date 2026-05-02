@@ -1,0 +1,87 @@
+---
+const steps = [
+  {
+    num: '01',
+    title: 'Desinfección profunda',
+    desc: 'Cada habitación se desinfecta con productos certificados EPA entre cada huésped. Superficies de alto contacto tratadas con agentes virucidas.',
+    icon: '🧴',
+  },
+  {
+    num: '02',
+    title: 'Ropa de cama sellada',
+    desc: 'Sábanas y toallas lavadas a 90 °C y entregadas selladas en bolsa sanitaria. Nunca manipuladas sin guantes.',
+    icon: '🛏',
+  },
+  {
+    num: '03',
+    title: 'Baños con protocolo',
+    desc: 'Cada baño sigue un protocolo de 12 pasos: desinfección, secado, sellado de amenidades y verificación final antes del ingreso.',
+    icon: '✅',
+  },
+  {
+    num: '04',
+    title: 'Ventilación garantizada',
+    desc: 'Las habitaciones permanecen ventiladas mínimo 4 horas antes de la llegada. Aire fresco del bosque, sin recirculación.',
+    icon: '🌿',
+  },
+];
+
+const certifications = [
+  { name: 'Safe Travels', org: 'WTTC', color: 'border-forest text-forest' },
+  { name: 'Sello Q Turístico', org: 'ICTE', color: 'border-bark text-bark' },
+  { name: 'CleanWorld Certified', org: 'CleanWorld', color: 'border-sand text-sand' },
+];
+---
+
+<section id="limpieza" class="py-28 bg-forest">
+  <div class="max-w-6xl mx-auto px-6 lg:px-16">
+
+    <div class="max-w-xl mb-16">
+      <span class="block text-[0.68rem] font-medium tracking-[0.25em] uppercase text-sand mb-3">
+        Limpieza & Compromiso
+      </span>
+      <h2 class="font-display font-light text-cream mb-4" style="font-size: clamp(2.2rem, 4.5vw, 3.2rem);">
+        Tu seguridad,<br/><em class="italic text-sand">nuestra prioridad</em>
+      </h2>
+      <p class="text-cream/60 font-light leading-relaxed text-sm">
+        Seguimos protocolos internacionales de higiene para que puedas
+        descansar con total tranquilidad. Cada proceso está documentado,
+        auditado y certificado.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {steps.map(step => (
+        <div class="group relative bg-forest-dark/50 border border-cream/8 rounded-lg p-6 transition-all duration-300 hover:border-sand/30 hover:bg-forest-dark/80">
+          <span class="text-3xl mb-4 block">{step.icon}</span>
+          <h3 class="font-display font-light text-cream text-xl mb-3">{step.title}</h3>
+          <p class="text-cream/50 font-light text-sm leading-relaxed">{step.desc}</p>
+          <!-- Hover accent line -->
+          <span class="absolute bottom-0 left-6 right-6 h-px bg-sand scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
+        </div>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-4 mb-10">
+      <span class="flex-1 h-px bg-cream/10"></span>
+      <span class="text-[0.68rem] font-medium tracking-[0.22em] uppercase text-cream/30">Nuestras certificaciones</span>
+      <span class="flex-1 h-px bg-cream/10"></span>
+    </div>
+
+    <div class="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
+      {certifications.map(cert => (
+        <div class={`flex items-center gap-3 px-5 py-3 border rounded-full ${cert.color} bg-cream/5`}>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 7l3.5 3.5L12 3"/>
+          </svg>
+          <span class="font-body text-[0.72rem] font-medium tracking-widest uppercase">{cert.name}</span>
+          <span class="text-[0.6rem] text-cream/30 uppercase tracking-widest">· {cert.org}</span>
+        </div>
+      ))}
+
+      <p class="w-full mt-6 text-[0.72rem] text-cream/35 font-light leading-relaxed max-w-lg">
+        * Las certificaciones se renuevan anualmente. Puedes solicitar nuestros certificados vigentes directamente a través de Instagram o en recepción durante tu estancia.
+      </p>
+    </div>
+  </div>
+</section>

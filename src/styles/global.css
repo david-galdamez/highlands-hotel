@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --color-forest: #4A5D4E;
+    --color-forest-dark: #3a4a3e;
+    --color-cream: #F4F1EA;
+    --color-cream-dark: #e8e4db;
+    --color-bark: #6F4E37;
+    --color-bark-light: #8a6248;
+    --color-sand: #D4A373;
+    --color-sand-light: #e0bc96;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-cream text-bark font-body font-light;
+        overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-display font-light leading-tight text-forest;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-cream;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-sand rounded-full;
+    }
+}
+
+@layer utilities {
+    .section-label {
+        @apply block text-[0.68rem] font-medium tracking-[0.25em] uppercase text-sand mb-3;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(6px, -10px) scale(1.04);
+    }
+}
+
+@keyframes bounce-y {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(7px);
+    }
+}

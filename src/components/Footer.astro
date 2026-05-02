@@ -1,0 +1,122 @@
+---
+
+---
+
+<footer class="bg-[#1a2319] py-16">
+  <div class="max-w-6xl mx-auto px-6 lg:px-16">
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 pb-12 border-b border-cream/8"
+    >
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 28 28"
+            fill="none"
+            class="text-sand"
+          >
+            <path
+              d="M14 2C14 2 6 10 6 17C6 21.4 9.6 25 14 25C18.4 25 22 21.4 22 17C22 10 14 2 14 2Z"
+              fill="currentColor"
+              opacity="0.9"></path>
+            <path
+              d="M14 8L14 25"
+              stroke="#F4F1EA"
+              stroke-width="1.2"
+              stroke-linecap="round"></path>
+            <path
+              d="M14 15L18 11"
+              stroke="#F4F1EA"
+              stroke-width="1"
+              stroke-linecap="round"></path>
+            <path
+              d="M14 19L10 16"
+              stroke="#F4F1EA"
+              stroke-width="1"
+              stroke-linecap="round"></path>
+          </svg>
+          <span class="font-display text-cream text-xl font-light tracking-wide"
+            >Highlands Hotel</span
+          >
+        </div>
+        <p class="text-cream/40 text-sm font-light leading-relaxed">
+          Fusión de elegancia natural<br />y calidez envolvente.
+        </p>
+      </div>
+
+      <div>
+        <span
+          class="block text-[0.65rem] tracking-[0.2em] uppercase text-sand/60 mb-4 font-medium"
+          >Navegación</span
+        >
+        <nav class="flex flex-col gap-3">
+          {
+            [
+              "#inicio|Inicio",
+              "#habitaciones|Habitaciones",
+              "#limpieza|Certificación de Limpieza",
+            ].map((item) => {
+              const [href, label] = item.split("|");
+              return (
+                <a
+                  href={href}
+                  class="text-sm text-cream/45 font-light hover:text-sand transition-colors duration-300"
+                >
+                  {label}
+                </a>
+              );
+            })
+          }
+        </nav>
+      </div>
+
+      <div>
+        <span
+          class="block text-[0.65rem] tracking-[0.2em] uppercase text-sand/60 mb-4 font-medium"
+          >Redes sociales</span
+        >
+        <a
+          href="https://www.instagram.com/highlandshotel_"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-3 text-cream/45 hover:text-sand transition-colors duration-300 group"
+        >
+          <span
+            class="flex items-center justify-center w-9 h-9 border border-cream/12 rounded-full group-hover:border-sand/40 transition-colors duration-300"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"
+              ></circle>
+            </svg>
+          </span>
+          <div>
+            <span class="block text-sm font-light">@highlandshotel_</span>
+            <span class="text-[0.65rem] text-cream/25">Instagram</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-[0.68rem] text-cream/25 font-light tracking-wide">
+        © {new Date().getFullYear()} Highlands Hotel · Todos los derechos reservados
+      </p>
+      <p
+        class="text-[0.68rem] text-cream/20 font-light tracking-widest uppercase"
+      >
+        Bosque Acogedor · Est. 2026
+      </p>
+    </div>
+  </div>
+</footer>

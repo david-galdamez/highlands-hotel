@@ -1,0 +1,338 @@
+---
+const rooms = [
+  {
+    id: "pino",
+    name: "Suite Pino Blanco",
+    tag: "Suite Deluxe",
+    desc: "Un espacio acogedor y luminoso, ideal para dos personas que buscan descanso en un entorno natural. Su diseño rústico y balcón privado invitan a la calma y la desconexión. Cada detalle ha sido preparado bajo estrictos estándares de limpieza y desinfección, garantizando una estancia segura y confortable.",
+    size: "38 m²",
+    capacity: "2 personas",
+    bed: "King Size",
+    views: [
+      {
+        label: "Entrada",
+        icon: "🚪",
+        img: "/img/pino-blanco-entrada.jpeg",
+      },
+      {
+        label: "Dormitorio",
+        icon: "🛏",
+        img: "/img/pino-blanco-dormitorio.jpeg",
+      },
+      {
+        label: "Baño",
+        icon: "🛁",
+        img: "/img/pino-blanco-baño.jpeg",
+      },
+      {
+        label: "Terraza",
+        icon: "🌲",
+        img: "/img/pino-blanco-terraza.jpeg",
+      },
+    ],
+    features: [
+      "Terraza privada",
+      "Mini bar",
+      "Ropa de cama esterilizada",
+      "Baño sanitizado",
+    ],
+    accent: "bg-forest",
+    tagColor: "text-forest border-forest/25",
+  },
+  {
+    id: "roble",
+    name: "Suite Roble Oscuro",
+    tag: "Suite Premium",
+    desc: "Amplia y cálida, perfecta para tres personas que desean compartir una experiencia única en la montaña. Cuenta con balcón privado y jacuzzi al aire libre, combinando confort y naturaleza. Cada espacio es cuidadosamente higienizado y certificado, asegurando limpieza total para tu tranquilidad.",
+    size: "42 m²",
+    capacity: "3 personas",
+    bed: "Queen Size",
+    views: [
+      {
+        label: "Entrada",
+        icon: "🚪",
+        img: "/img/roble-oscuro-entrada.jpeg",
+      },
+      {
+        label: "Dormitorio",
+        icon: "🛏",
+        img: "/img/roble-oscuro-dormitorio.jpeg",
+      },
+      {
+        label: "Baño",
+        icon: "🚿",
+        img: "/img/roble-oscuro-baño.jpeg",
+      },
+      {
+        label: "Jacuzzi",
+        icon: "♨️",
+        img: "/img/roble-oscuro-jacuzzi.jpeg",
+      },
+    ],
+    features: [
+      "Jacuzzi",
+      "Ropa de cama esterilizada",
+      "Baño sanitizado",
+      "Jacuzzi desinfectado",
+    ],
+    accent: "bg-bark",
+    tagColor: "text-bark border-bark/25",
+  },
+  {
+    id: "bosque",
+    name: "Suite Susurros del Bosque",
+    tag: "Suite Deluxe",
+    desc: "Un refugio íntimo para dos personas, rodeado de naturaleza y diseñado para el descanso en pareja. Su ambiente cálido y balcón privado crean una experiencia relajante y acogedora. Cada área ha sido desinfectada bajo protocolos de alta calidad, brindando confianza y bienestar en cada estancia.",
+    size: "36 m²",
+    capacity: "2 personas",
+    bed: "King Size",
+    views: [
+      {
+        label: "Entrada",
+        icon: "🚪",
+        img: "/img/susurro-bosque-entrada.jpeg",
+      },
+      {
+        label: "Dormitorio",
+        icon: "🛏",
+        img: "/img/susurro-bosque-dormitorio.jpeg",
+      },
+      {
+        label: "Baño",
+        icon: "🚿",
+        img: "/img/susurro-bosque-baño.jpeg",
+      },
+      {
+        label: "Terraza",
+        icon: "🌲",
+        img: "/img/susurro-bosque-terraza.jpeg",
+      },
+    ],
+    features: ["Baño sanitizado", "Ropa de cama esterilizada"],
+    accent: "bg-bark",
+    tagColor: "text-bark border-bark/25",
+  },
+];
+---
+
+<section id="habitaciones" class="py-28 bg-cream">
+  <div class="max-w-6xl mx-auto px-6 lg:px-16">
+    <div class="text-center max-w-xl mx-auto mb-20">
+      <span class="section-label">Nuestros espacios</span>
+      <h2
+        class="font-display font-light text-forest mb-4"
+        style="font-size: clamp(2.2rem, 4.5vw, 3.2rem);"
+      >
+        Habitaciones con<br /><em class="italic text-sand">transparencia</em> total
+      </h2>
+      <p class="text-bark-light font-light leading-relaxed text-sm">
+        Highlands Hotel apuesta por la transparencia y la calidad, permitiendo
+        al huésped explorar cada habitación y conocer sus condiciones de
+        limpieza antes de reservar, garantizando así una experiencia segura y
+        satisfactoria.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-24">
+      {
+        rooms.map((room, i) => (
+          <article
+            class={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center`}
+          >
+            <div class={`${i % 2 === 1 ? "lg:order-2" : ""}`}>
+              <div class="flex gap-2 flex-wrap mb-3">
+                {room.views.map((view, vi) => (
+                  <button
+                    class="gallery-tab flex items-center gap-1.5 px-3 py-1.5 text-[0.68rem] font-medium tracking-widest uppercase border border-cream-dark rounded-full text-bark-light transition-all duration-250 hover:bg-forest hover:border-forest hover:text-cream"
+                    data-room={room.id}
+                    data-vi={vi}
+                    aria-label={`Ver ${view.label}`}
+                  >
+                    <span class="text-sm">{view.icon}</span>
+                    {view.label}
+                  </button>
+                ))}
+              </div>
+              <div class="relative rounded-lg overflow-hidden aspect-4/3 bg-cream-dark shadow-[0_4px_40px_rgba(111,78,55,0.12)]">
+                {room.views.map((view, vi) => (
+                  <div
+                    class={`gallery-slide absolute inset-0 transition-opacity duration-500 ${vi === 0 ? "opacity-100" : "opacity-0"}`}
+                    data-room={room.id}
+                    data-vi={vi}
+                  >
+                    <div class="w-full h-full">
+                      <img
+                        src={view.img}
+                        alt={view.label}
+                        class="w-full h-[calc(100%-2.5rem)] object-cover object-top"
+                      />
+                      <div
+                        class="absolute inset-0 bottom-10 opacity-[0.06]"
+                        style="background-image: url('data:image/svg+xml,...')"
+                      />
+                      <div class="absolute bottom-0 left-0 right-0 h-10 bg-bark/60 backdrop-blur-sm flex items-center px-4">
+                        <span class="text-[0.65rem] tracking-[0.18em] uppercase text-cream/80 font-medium">
+                          {view.label}
+                        </span>
+                      </div>
+                    </div>
+                    <span class="absolute bottom-3 left-4 text-[0.65rem] tracking-[0.18em] uppercase text-cream/55 font-medium">
+                      {view.label}
+                    </span>
+                  </div>
+                ))}
+                <div class="absolute bottom-3 right-4 flex gap-1.5">
+                  {room.views.map((_, vi) => (
+                    <button
+                      class={`gallery-dot w-1.5 h-1.5 rounded-full transition-all duration-300 ${vi === 0 ? "bg-cream scale-125" : "bg-cream/35"}`}
+                      data-room={room.id}
+                      data-vi={vi}
+                      aria-label={`Vista ${vi + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div class={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
+              <span
+                class={`inline-block text-[0.65rem] font-medium tracking-[0.22em] uppercase px-3 py-1 border rounded-full mb-4 ${room.tagColor}`}
+              >
+                {room.tag}
+              </span>
+
+              <h3
+                class="font-display font-light text-forest mb-4"
+                style="font-size: clamp(1.8rem, 3vw, 2.4rem);"
+              >
+                {room.name}
+              </h3>
+
+              <p class="text-bark-light font-light leading-relaxed text-sm mb-6">
+                {room.desc}
+              </p>
+              <div class="flex items-center gap-6 mb-6 pb-6 border-b border-cream-dark">
+                <div class="flex items-center gap-2 text-bark text-sm">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    class="text-sand flex-shrink-0"
+                  >
+                    <>
+                      <rect x="1" y="1" width="14" height="14" rx="2" />
+                      <path d="M1 7h14" />
+                    </>
+                  </svg>
+                  <span class="font-light">{room.size}</span>
+                </div>
+                <div class="flex items-center gap-2 text-bark text-sm">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    class="text-sand flex-shrink-0"
+                  >
+                    <>
+                      <circle cx="8" cy="5" r="3" />
+                      <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+                    </>
+                  </svg>
+                  <span class="font-light">{room.capacity}</span>
+                </div>
+                <div class="flex items-center gap-2 text-bark text-sm">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    class="text-sand flex-shrink-0"
+                  >
+                    <>
+                      <rect x="1" y="6" width="14" height="8" rx="1.5" />
+                      <path d="M1 10h14M5 6V4a2 2 0 014 0v2" />
+                    </>
+                  </svg>
+                  <span class="font-light">{room.bed}</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-8">
+                {room.features.map((f) => (
+                  <span class="text-[0.68rem] font-medium tracking-[0.1em] uppercase px-3 py-1.5 bg-cream-dark text-bark rounded-full">
+                    {f}
+                  </span>
+                ))}
+              </div>
+              <a
+                href="https://www.instagram.com/highlandshotel_"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 px-7 py-3 text-[0.75rem] font-medium tracking-[0.15em] uppercase bg-sand text-bark rounded-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,163,115,0.4)] hover:bg-sand-light"
+              >
+                Consultar disponibilidad
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M2 7h10M8 3l4 4-4 4" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  document
+    .querySelectorAll<HTMLButtonElement>(".gallery-tab, .gallery-dot")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const room = btn.dataset.room!;
+        const vi = Number(btn.dataset.vi);
+
+        document
+          .querySelectorAll<HTMLElement>(`.gallery-slide[data-room="${room}"]`)
+          .forEach((slide, i) => {
+            slide.classList.toggle("opacity-100", i === vi);
+            slide.classList.toggle("opacity-0", i !== vi);
+          });
+
+        document
+          .querySelectorAll<HTMLButtonElement>(
+            `.gallery-tab[data-room="${room}"]`,
+          )
+          .forEach((t, i) => {
+            t.classList.toggle("bg-forest", i === vi);
+            t.classList.toggle("border-forest", i === vi);
+            t.classList.toggle("text-cream", i === vi);
+            t.classList.toggle("text-bark-light", i !== vi);
+            t.classList.toggle("border-cream-dark", i !== vi);
+            t.classList.toggle("bg-transparent", i !== vi);
+          });
+
+        document
+          .querySelectorAll<HTMLButtonElement>(
+            `.gallery-dot[data-room="${room}"]`,
+          )
+          .forEach((d, i) => {
+            d.classList.toggle("bg-cream", i === vi);
+            d.classList.toggle("scale-125", i === vi);
+            d.classList.toggle("bg-cream/35", i !== vi);
+          });
+      });
+    });
+</script>
