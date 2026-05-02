@@ -9,26 +9,14 @@ const rooms = [
     capacity: "2 personas",
     bed: "King Size",
     views: [
-      {
-        label: "Entrada",
-        icon: "🚪",
-        img: "/img/pino-blanco-entrada.jpeg",
-      },
+      { label: "Entrada", icon: "🚪", img: "/img/pino-blanco-entrada.jpeg" },
       {
         label: "Dormitorio",
         icon: "🛏",
         img: "/img/pino-blanco-dormitorio.jpeg",
       },
-      {
-        label: "Baño",
-        icon: "🛁",
-        img: "/img/pino-blanco-baño.jpeg",
-      },
-      {
-        label: "Terraza",
-        icon: "🌲",
-        img: "/img/pino-blanco-terraza.jpeg",
-      },
+      { label: "Baño", icon: "🛁", img: "/img/pino-blanco-baño.jpeg" },
+      { label: "Terraza", icon: "🌲", img: "/img/pino-blanco-terraza.jpeg" },
     ],
     features: [
       "Terraza privada",
@@ -48,26 +36,14 @@ const rooms = [
     capacity: "3 personas",
     bed: "Queen Size",
     views: [
-      {
-        label: "Entrada",
-        icon: "🚪",
-        img: "/img/roble-oscuro-entrada.jpeg",
-      },
+      { label: "Entrada", icon: "🚪", img: "/img/roble-oscuro-entrada.jpeg" },
       {
         label: "Dormitorio",
         icon: "🛏",
         img: "/img/roble-oscuro-dormitorio.jpeg",
       },
-      {
-        label: "Baño",
-        icon: "🚿",
-        img: "/img/roble-oscuro-baño.jpeg",
-      },
-      {
-        label: "Jacuzzi",
-        icon: "♨️",
-        img: "/img/roble-oscuro-jacuzzi.jpeg",
-      },
+      { label: "Baño", icon: "🚿", img: "/img/roble-oscuro-baño.jpeg" },
+      { label: "Jacuzzi", icon: "♨️", img: "/img/roble-oscuro-jacuzzi.jpeg" },
     ],
     features: [
       "Jacuzzi",
@@ -87,26 +63,14 @@ const rooms = [
     capacity: "2 personas",
     bed: "King Size",
     views: [
-      {
-        label: "Entrada",
-        icon: "🚪",
-        img: "/img/susurro-bosque-entrada.jpeg",
-      },
+      { label: "Entrada", icon: "🚪", img: "/img/susurro-bosque-entrada.jpeg" },
       {
         label: "Dormitorio",
         icon: "🛏",
         img: "/img/susurro-bosque-dormitorio.jpeg",
       },
-      {
-        label: "Baño",
-        icon: "🚿",
-        img: "/img/susurro-bosque-baño.jpeg",
-      },
-      {
-        label: "Terraza",
-        icon: "🌲",
-        img: "/img/susurro-bosque-terraza.jpeg",
-      },
+      { label: "Baño", icon: "🚿", img: "/img/susurro-bosque-baño.jpeg" },
+      { label: "Terraza", icon: "🌲", img: "/img/susurro-bosque-terraza.jpeg" },
     ],
     features: ["Baño sanitizado", "Ropa de cama esterilizada"],
     accent: "bg-bark",
@@ -136,9 +100,7 @@ const rooms = [
     <div class="flex flex-col gap-24">
       {
         rooms.map((room, i) => (
-          <article
-            class={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center`}
-          >
+          <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div class={`${i % 2 === 1 ? "lg:order-2" : ""}`}>
               <div class="flex gap-2 flex-wrap mb-3">
                 {room.views.map((view, vi) => (
@@ -153,6 +115,7 @@ const rooms = [
                   </button>
                 ))}
               </div>
+
               <div class="relative rounded-lg overflow-hidden aspect-4/3 bg-cream-dark shadow-[0_4px_40px_rgba(111,78,55,0.12)]">
                 {room.views.map((view, vi) => (
                   <div
@@ -166,21 +129,15 @@ const rooms = [
                         alt={view.label}
                         class="w-full h-[calc(100%-2.5rem)] object-cover object-top"
                       />
-                      <div
-                        class="absolute inset-0 bottom-10 opacity-[0.06]"
-                        style="background-image: url('data:image/svg+xml,...')"
-                      />
                       <div class="absolute bottom-0 left-0 right-0 h-10 bg-bark/60 backdrop-blur-sm flex items-center px-4">
                         <span class="text-[0.65rem] tracking-[0.18em] uppercase text-cream/80 font-medium">
                           {view.label}
                         </span>
                       </div>
                     </div>
-                    <span class="absolute bottom-3 left-4 text-[0.65rem] tracking-[0.18em] uppercase text-cream/55 font-medium">
-                      {view.label}
-                    </span>
                   </div>
                 ))}
+
                 <div class="absolute bottom-3 right-4 flex gap-1.5">
                   {room.views.map((_, vi) => (
                     <button
@@ -193,6 +150,7 @@ const rooms = [
                 </div>
               </div>
             </div>
+
             <div class={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
               <span
                 class={`inline-block text-[0.65rem] font-medium tracking-[0.22em] uppercase px-3 py-1 border rounded-full mb-4 ${room.tagColor}`}
@@ -210,6 +168,7 @@ const rooms = [
               <p class="text-bark-light font-light leading-relaxed text-sm mb-6">
                 {room.desc}
               </p>
+
               <div class="flex items-center gap-6 mb-6 pb-6 border-b border-cream-dark">
                 <div class="flex items-center gap-2 text-bark text-sm">
                   <svg
@@ -263,13 +222,44 @@ const rooms = [
                   <span class="font-light">{room.bed}</span>
                 </div>
               </div>
-              <div class="flex flex-wrap gap-2 mb-8">
+
+              <div class="flex flex-wrap gap-2 mb-6">
                 {room.features.map((f) => (
                   <span class="text-[0.68rem] font-medium tracking-[0.1em] uppercase px-3 py-1.5 bg-cream-dark text-bark rounded-full">
                     {f}
                   </span>
                 ))}
               </div>
+
+              <div class="flex items-center gap-3 px-4 py-3 mb-8 bg-forest/8 border border-forest/20 rounded-lg">
+                <span class="relative flex-shrink-0 flex items-center justify-center w-7 h-7">
+                  <span class="absolute inline-flex w-full h-full rounded-full bg-forest/25 animate-ping" />
+                  <span class="relative flex items-center justify-center w-5 h-5 rounded-full bg-forest">
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M1.5 5l2.5 2.5 4.5-4" />
+                    </svg>
+                  </span>
+                </span>
+                <div class="flex flex-col">
+                  <span class="text-[0.72rem] font-medium tracking-[0.1em] uppercase text-forest leading-none mb-0.5">
+                    Limpieza certificada
+                  </span>
+                  <span class="text-[0.68rem] text-bark-light font-light">
+                    Última desinfección:{" "}
+                    <span class="font-medium text-bark">hoy</span>
+                  </span>
+                </div>
+              </div>
+
               <a
                 href="https://www.instagram.com/highlandshotel_"
                 target="_blank"
